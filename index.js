@@ -1,22 +1,12 @@
-/*
-
-let
-const
-var -- deprecated
-
-*/
-
-let box; // декларація змінної
-let newBox = 3; // декларація + присвоювання (ініціалізація)
+let a = 0;
 
 
-box = 5; // присвоювання значення
-box = true;
-box = 'Hello';
-console.log(box);
+/* Інкремент, декремент */
+//a++; // Постфіксна форма інкремента
+//++a; // префіксна форма інкремента
 
+console.log(a++);
+console.log(a);
 
-let value = 'Very important value';
-let value1 = '';
-
-const a = {};
+//a--;
+//--a;
