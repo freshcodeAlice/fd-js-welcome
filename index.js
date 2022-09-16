@@ -1,6 +1,22 @@
-console.log(34);
-console.log('Text');
-console.log(true);
-console.log(null);
-console.log(undefined);
-console.log(1n);
+/*
+
+let
+const
+var -- deprecated
+
+*/
+
+let box; // декларація змінної
+let newBox = 3; // декларація + присвоювання (ініціалізація)
+
+
+box = 5; // присвоювання значення
+box = true;
+box = 'Hello';
+console.log(box);
+
+
+let value = 'Very important value';
+let value1 = '';
+
+const a = {};
