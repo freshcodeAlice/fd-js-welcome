@@ -2,6 +2,7 @@
 
 
 function getSumOfTwo(a, b) {
+    debugger;
     let result = a + b;
     return result;
 }
