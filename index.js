@@ -1,47 +1,38 @@
-/* Логічні оператори */
+let a = 10;
+a = a + 5;
+a = a - 1; //a--
+a = a - 3;
+a = a * 5;
 
-//!true = false
-// !false = true
-// !!true = true;
-// !!false = false;
+a += 5; // a = a + 5;
+a -= 3;
+a *= 2;
+a /= 2;
 
-/// Порівняння
-// > - більше
-// < - менше
-// >= - більше або дорівнює
-// <= - менше або дорівнює
 
-// Логічне І (AND) - кон'юнкція
-true && true 
+//let b = 1, c = 10, d = 15; // BAD PRACTICE
+
+/* Дорівнює/не дорівнює */
+
+let b = 1;
+undefined
+let c = 1;
+undefined
+b === c;
 true
-true && false
-false
-false && true
-false
-false && false
-false
-
-// Повертає перший false або останній true, якщо всі true
-
-const res = 2 && 'a' && {}; // {}
-const res2 = 1 && true && null;
-
-const res3 = 2+2 && 3+3 && 0 && 5;
-
-
-// Логічне АБО - диз'юнкція
-// повертає true, коли хоча б один операнд - true
-true || true
+let d = '1';
+undefined
+b == d;
 true
-true || false
-true
-false || true
-true
-false || false
+b === d;
 false
-
-// перший true-операнд, якого зустріне, або останнє false
-
-
-const res5 = undefined || '' || 2;
-const res6 = '' || 1 || 0;
+b === c;
+true
+3 !== 4
+true
+b !== c;
+false
+b != d;
+false
+b !== d;
+true
