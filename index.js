@@ -1,16 +1,18 @@
-/* Функція  */
+/*
+напишіть функцію, яка приймає два числа і повертає найбільше з них.
+Поставте дебаггер всередині функції та проінспектуйте її роботу
+
+*/
 
 
-function getSumOfTwo(a, b) {
+
+const num = 5;
+
+function fn(){
+    // const num = 10;
     debugger;
-    let result = a + b;
-    return result;
+ 
+    console.log(num);
 }
 
-const res = getSumOfTwo(2, 3);
-console.log(res);
-
-
-function getMultyplyOfTwo(a, b) {
-    return a * b;
-}
+fn();
