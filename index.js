@@ -1,45 +1,36 @@
-/*
-if (умова) {
-    // блок коду, який виконається, якщо умова = true
+/* Функція  */
+
+
+function hello() { //Function declaration
+    console.log('hello, user');
 }
 
+
+hello();
+
+/*
+function ім'я_функції(параметри) {
+    блок коду, який буде виконуватись
+}
+
+для виклику функції
+ім'я_функції()
+
+
+doSomething
+calculateAnnualReport
+getSumOfTwoNumbers
 */
 
 
-if(5 < 6) {
-    console.log('this is true')
-}
-console.log('code is running')
 
-/*
+const hello2 = function() { //Function Expression
 
-if (умова) {
-    блок коду, який виконається якщо умова = true
-} else {
-    блок коду, який виконається, якщо умова = false
 }
 
-*/
+hello2()
 
 
-if (5 % 2 === 0) {
-   console.log('число парне')
-} else {
-    console.log('число непарне')
-}
-
-
-/*
-
-Запитайте у юзера, скільки йому років, і якщо > 18, виведіть, що він повнолітній, якщо менше - то ще не повнолітній
-
-
-*/
-
-const userValue = Number(prompt('Скільки тобі років'));
-
-if (userValue >= 18) {
-    console.log('Ви повнолітній')
-} else {
-    console.log('Ви неповнолітній')
+const arrFun = (args) => { //Arrow Function
+    //блок коду, який виконується
 }
