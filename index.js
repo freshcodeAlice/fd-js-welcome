@@ -1,18 +1,25 @@
+
+function getValueFromUser() {
+    let userName = prompt('Як Вас звати?');
+    sayHello(userName);
+}
+
+
+function sayHello(abracadabra){
+    debugger;
+    console.log('Hello ' + abracadabra);
+}
+
+getValueFromUser();
+
+
 /*
-напишіть функцію, яка приймає два числа і повертає найбільше з них.
-Поставте дебаггер всередині функції та проінспектуйте її роботу
+
+Написати функцію, яка приймає число і якщо воно парне, повертає true, в іншому випадку повертає false
 
 */
 
 
-
-const num = 5;
-
-function fn(){
-    // const num = 10;
-    debugger;
- 
-    console.log(num);
+function isEven(number){
+    return number % 2 === 0
 }
-
-fn();
