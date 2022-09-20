@@ -1,11 +1,15 @@
-/* if - else if */
+/* Тернарний оператор 
+умова ? якщо true : якщо false
+*/
 
-const userAge = Number(prompt('How old are you?'));
+let result = (2+2 === 4) ? 'Дійсно чотири' : 'Чогось не чотири';
+console.log(result);
 
-if(userAge > 40) {
-    console.log('Your age is bigger than 40')
-} else if (userAge > 20 && userAge < 40) {
-    console.log('Your are in 20 to 40');
-} else {
-    console.log('else')
-}
+
+/*
+Задача: вивести в консоль "Повнолітній", якщо вік користувача > 18, і "неповнолітній, якщо менше"
+Одним рядком коду
+
+*/
+
+console.log(userAge > 18 ? "Повнолітній" : "неповнолітній")
