@@ -1,50 +1,32 @@
 /*
-Написати калькулятор
+const userAvatar = 'http://.....';
+const imagePlaceholder = './';
 
-сума
-різниця
-множення
-ділення
 
-Отримуємо від користувача за допомогою prompt 
-перше число 
-друге число
-символ дії - +, -, *, /
+
+let imageSrc = userAvatar ? userAvatar : imagePlaceholder;
+<img src="" />
+*/
+
+
+/*
+Спитайте у юзера, як його звуть, і виведіть на консоль "Hello " + userName
+Якщо користувач нічого не ввів - виведіть "Hello, Anonym"
 
 */
-let num1 = Number(prompt('Enter first num'));
-let num2 = Number(prompt('Enter second number'));
-let oper = prompt('Enter the operator');
 
-calculator(num1, num2, oper);
+const userName = prompt('What is your name?');
 
-function sum(a, b) {
-    return a + b;
+function sayHello(name = 'Anonym'){
+    console.log('Hello ' + name);
 }
 
-function sub(a, b) {
-    return a - b;
-}
 
-function multy(a, b) {
-    return a * b;
-}
+sayHello('Alex');
 
-function div(a, b){
-    return a / b;
-}
 
-function calculator(firstNum, secondNum, operator) {
-    switch(operator) {
-        case '+':
-            return sum(firstNum, secondNum);
-        case '-':   
-            return sub(firstNum, secondNum);
-        case '*':
-            return multy(firstNum, secondNum);
-        case '/':
-            return div(firstNum, secondNum);
-        default: 
-            return 'Unexpected operation'
-    }
-}
+sayHello('John');
+
+sayHello(userName);
+
+sayHello();
