@@ -33,11 +33,11 @@ do {
 const password = 'GoodPassword';
   
 
-let userValue = '';
-do {
-//    userValue = prompt('Type your password');
-} while (userValue !== password);
-console.log('Password correct');
+// let userValue = '';
+// do {
+//     userValue = prompt('Type your password');
+// } while (userValue !== password);
+// console.log('Password correct');
 
 
 
@@ -46,9 +46,15 @@ console.log('Password correct');
 
 
 */
-let n = 1;
-while (n++ < 10) {
-    if ( n % 2 === 0 ) {
-        console.log(n);
+let k = 0;
+let sum = 0;
+while (k++ < 5) {
+    debugger;
+    if(k % 2) {
+        continue;
     }
+    sum += k;
 }
+
+
+console.log(sum);
