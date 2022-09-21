@@ -1,60 +1,100 @@
-// console.log('1');
+/* For */
 
-
-// while (умова = true) {
-// блок коду, який буде виконуватись, поки умова = true
+// for (ініціалізація; умова; інкрементація) {
+//     блок коду
 // }
 
-let i = 0;
-while (i < 10) {
-    i++;
-    console.log('1');
+
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+//    break;
 }
 
 
-// do {
-//    блок коду
-// } while(умова)
-
-let j = 0;
-do {
-    console.log('2')
-} while (j++ < 3);
-
-
 /*
-Задача. 
-Маємо змінну з рядком 'GoodPassword'
- Запитайте у юзера через prompt пароль, порівняйте його з цим рядком, якщо користувач ввів неправильний пароль - запитайте ще раз. Якщо правильний - виведіть на консоль "Пароль правильний"
 
+Написати функцію, яка приймає числовий аргумент та повертає факторіал числа
+5! = 1*2*3*4*5
+8! = 1*2*3*4*5*6*7*8
 
 */
 
-const password = 'GoodPassword';
-  
-
-// let userValue = '';
-// do {
-//     userValue = prompt('Type your password');
-// } while (userValue !== password);
-// console.log('Password correct');
-
-
-
-/*
-Вивести на консоль всі парні числа від 1 до 10
-
-
-*/
-let k = 0;
-let sum = 0;
-while (k++ < 5) {
-    debugger;
-    if(k % 2) {
-        continue;
+function factorial(number) {
+    let res = 1;
+    for (let i = 1; i <= number; i++) {
+        res *= i;
     }
-    sum += k;
+    return res;
 }
 
 
-console.log(sum);
+/*
+Функція приймає число і ступінь, в який треба звести число і повертає число у вказаному ступені
+
+pow(base, power)
+5^3 = 5*5*5
+*/
+
+function pow(base, power) {
+    let res = base;
+    for (let i = 1; i < power; i++) {
+        res *= base;
+    }
+    return res;
+}
+
+
+/*
+
+1. Дана висота прямокутника і його ширина. Написати функцію, що обчислює площу прямокутника.
+
+2. Написати функцію, що обчислює довжину кола за його діаметром.
+
+
+*/
+
+
+const PI = 3.14;
+
+//1
+function square(a, b) {
+    return a*b;
+}
+
+
+//2 
+
+function circleLength(d) {
+    return Math.PI * d;
+}
+
+
+/*
+Реалізувати гру FizzBuzz від 1 до 100
+
+
+*/
+
+
+function fizzBuzz(number) {
+    for (let i = 1; i < number; i++) {
+        if( !(i % 5) && !(i % 3)) {
+            console.log(' FizzBuzz');
+        } else if (!(i % 3)) {
+            console.log('Fizz');
+        } else if (!(i % 5)) {
+            console.log('Buzz');
+        } else {
+            console.log(i);
+        }
+        
+
+    }
+}
+
+
+/*
+Вивести всі дільники переданого числа
+
+
+*/
