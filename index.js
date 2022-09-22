@@ -96,5 +96,27 @@ function fizzBuzz(number) {
 /*
 Вивести всі дільники переданого числа
 
+*/
+
+function divBy(number) {
+    for ( let i = 1; i <= number; i++) {
+        if (number % i === 0) {
+            console.log(i);
+        }
+    }
+}
+
+
+
+
+
+/*
+Вивести всі числа від 50 до 1 в зворотньому порядку
 
 */
+
+
+
+for (let i = 50; i >= 1; i--) {
+    console.log(i);
+}
