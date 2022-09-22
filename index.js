@@ -61,3 +61,30 @@ let variable = 'color';
 
 cat[num];
 cat[variable];
+
+
+
+/*
+
+Задача
+Напишіть функцію, яка приймає від користувача день тижня і повертає йому алертом, які у нього плани на цей день
+
+
+*/
+const weekPlan = {
+    Mon: 'dantist',
+    Tue: 'go to park',
+    Wed: 'meet friends',
+    Thu: 'learn',
+    Fri: 'hard work',
+    Sat: 'go to party'
+}
+
+
+function getWeekPlan(plan) {
+    const userValue = prompt('What day do you intrested in?');
+    alert(plan[userValue]);
+}
+
+
+getWeekPlan(weekPlan);
