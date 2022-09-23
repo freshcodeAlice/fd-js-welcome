@@ -78,3 +78,18 @@ const b = {
     key2: 'value2'
 } //false
 */
+
+
+function isEqual(obj1, obj2) {
+    for (const key in obj1) {
+       if (obj1[key] !== obj2[key]) {
+            return false
+       }
+    }
+    for (const key in obj2) {
+        if (obj1[key] !== obj2[key]) {
+             return false
+        }
+     }
+    return true
+}
