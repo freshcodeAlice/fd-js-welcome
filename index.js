@@ -1,202 +1,37 @@
 'use strict'
 
-// const user1 = {
-//     firstName: 'Alex',
-//     lastName: 'Grow',
-//     age: 15,
-//     getName: function () {
-//         console.log(this.firstName + this.lastName);
-//     }
-// }
+const userTel1 = '43234234234';
+const userTel2 = '4323423423423';
+const userHomeTel = '32423423422';
 
 
-// const user2 = {
-//     firstName: 'John',
-//     lastName: 'Doe',
-//     age: 15,
-//     getName: function () {
-//         console.log(this.firstName + this.lastName);
-//     }
-// }
-
-// function User(firstName, lastName) {
-//     // {}, кладе його у this
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.age = 20;
-//     this.sayHello = function() {
-//         console.log(this.firstName + ' say: "Hello"');
-//     }
-// }
-
-
-// const us = new User('Jack', 'Sparrow');
-// us.firstName;
-
-
-/*
-Функція-конструктор Car
-Машина має властивості:
-
-бренд
-модель
-об'єм двигуна
-кількість місць
-максимальну швидкість
-+поточна швидкість
-
-Машина вміє:
-їздити (run()) - метод виводить на консоль, що конкретно ось ця машина їде
-зупинятись (stop()) - метод виводить на консоль, що конкретно ось ця машина зупинилась
-
-+розганятись (accelerate(value)) - розганяє машину, додавши value до поточної швидкості. Швидше за максимальну швидкість ми розігнатись не можемо. 
-+сповільнюватись (deaccelerate(value)) - сповільнює машину, віднявши value від поточної швидкості.
-Якщо швидкість доходить до нуля - зупиняємо машину.
-
-*/
-
-
-function Car(brand, model, engineVolume, seatsQuantity, maxSpeed) {
-    this.brand = brand;
-    this.model = model;
-    this.engineVolume = engineVolume;
-    this.seatsQuantity = seatsQuantity;
-    this.maxSpeed = maxSpeed;
-
-    this.currentSpeed = 0;
-
-    this.run = function () {
-        // return this.model + ' is running with ' + this.currentSpeed + ' km/h';
-        return `${this.model} is running with ${this.currentSpeed} km/h`;
-    }
-    this.stop = function() {
-        this.currentSpeed = 0;
-       return this.model + ' is stopped';
-    }
-    this.accelerate = function(value) {
-        this.currentSpeed += value;
-        if(this.currentSpeed > this.maxSpeed) {
-            this.currentSpeed = this.maxSpeed;
-        }
-        return this.run();
-    }
-    this.deaccelerate = function(value) {
-        this.currentSpeed -= value;
-        if(this.currentSpeed < 0) {
-            return this.stop();
-        }
-        return this.run();
-    }
+const obj = {
+    0: '43234234234',
+    1: '4323423423423',
+    2: '32423423422',
 }
 
 
-/*
-Функція-конструктор User.
-Юзер має:
-- ім'я
-- прізвище
-- вік
-- мейл
-- пароль
-- залогінений (isLogIn) 
+//obj.1 // not working
+obj[1] // works!
 
-Методи:
-- повне ім'я - повертає рядок з іменем і прізвищем
 
-- signIn - приймає пароль, порівнюємо його з паролем, який зберігаємо, якщо вони співпадають - користувач буде залогінений. Якщо ні, відповідаємо "неправильний пароль"
-
-*/
-
-function User(firstName, lastName, age, email, password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.email = email;
-    this.password = password;
-    this.isLogIn = false;
-    this.getFullName = function () {
-        return this.firstName + ' ' + this.lastName;
-    }
-    this.signIn = function(pass) {
-        if( pass === this.password) {
-            this.isLogIn = true;
-            return 'You are logged in'
-        } else {
-            return 'Password incorrect'
-        }
-    }
-}
+const arr = [2, 1, 4, 2, 4, 1];
 
 
 /*
-Функція-конструктор робітника (Worker). Робітник має ім'я, прізвище, ставку за день (rate), кількість відпрацьованих днів в цьому місяці.
+Створіть масив з 10 числових елементів
 
-Метод:
-getSalary - має розрахувати, скільки робітник отримає зп в цьому місяці, засн. на ставці та кількості відпрацьованих днів.
+Напишіть функцію, яка приймає массив і повертає суму 3го і 5го елементів
+
+
 
 
 */
 
-function Worker(firstName, lastName, rate, days) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    if(rate < 0) {
-       this.rate = 0;
-    } else {
-        this.rate = rate; 
-    }
-    if (days > 31) {
-        this.days = 31; 
-    } else {
-        this.days = days;
-    }
-    this.getSalary = function() {
-        return this.rate * this.days;
-    }
-
-    return this; // primitive will be ignored, this will be returned
- }
-
-const wrkr = new Worker('Black', 'Widow', 100500, 10);
-
- /*
-
-Шаблонні рядки
-
- */
-
-const str = 'say: \n "hello"'; 
-//alert('2234234234+2234234234='+(2234234234+2234234234));
-
-const templateString = `2+2
-${wrkr.getSalary()}
+const array = [2, 2, 7, 3, 1, 6, 3, 6, 4, 10];
 
 
-=4`;
-
-console.log(templateString);
-
-
-
-//////////////////
-
-const protocol = 'http';
-const domain = 'www.example.com';
-const port = 80;
-const path = 'path/to/myfile.html';
-
-const query = {
-    key1: 'value1',
-    key2: 'value2',
-    key3: 'value3'
-}
-
-
-function createURL(protocol, domain, port, path, queryParams) {
-    let url = `${protocol}://${domain}:${port}/${path}?`;
-    for (const key in queryParams) {
-       url += `${key}=${queryParams[key]}&`;
-    }
-    
-    return url;
+function sum3and5elemen(array) {
+    return array[2] + array[4];
 }
