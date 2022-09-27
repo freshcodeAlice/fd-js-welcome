@@ -2,9 +2,12 @@
 function MyArray() {
     this.length = 0;
 
-    this.push = function(value) {
-        this[this.length] = value;
-        return ++this.length;
+    this.push = function() {
+        for (let i = 0; i < arguments.length; i++) {
+            this[this.length] = arguments[i];
+            this.length++;
+        }
+        return this.length;
     }
 
     this.pop = function() {
