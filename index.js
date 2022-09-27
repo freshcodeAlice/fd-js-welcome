@@ -1,28 +1,24 @@
 'use strict'
 
+/*
 
-function printElement(num, i) {
-    console.log(`${i} - ${num}`);
+Реалізуйте метод map
+
+
+*/
+
+const arrNative = [2, 3, 4, 5];
+
+
+function multyElem(num) {
+    return num*2;
 }
 
-const arr = [2, 3, 1, 2, 4, 2, 1, 2];
+///[4, 6, 8, 10];
 
-//arr.forEach(printElement);
-
-
-
-
-//////
-
-function multyTwo(num) {
-    return num*2
+const arr = [];
+for (let i = 0; i < arrNative.length; i++) {
+    arr.push(multyElem(arrNative[i]));
 }
 
-// const resultArray = [];
-
-// for (let i = 0; i < arr.length; i++) {
-//     let element = multyTwo(arr[i]);
-//     resultArray.push(element);
-// }
-
-const resultArray = arr.map(multyTwo);
+console.log(arr);
