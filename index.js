@@ -1,10 +1,14 @@
 'use strict'
 
-function sumOfAllArguments() {
-    let sum = 0;
-        for (let i = 0; i < arguments.length; i++) {
-            sum += arguments[i];    
-        }
-  return sum;
+const obj1 = {
+    key: 'value'
+};
+
+
+const obj2 = {
+    method: function() {
+        console.log('hi')
+    }
 }
 
+obj1.__proto__ = obj2;

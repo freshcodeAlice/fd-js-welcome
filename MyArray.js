@@ -2,6 +2,12 @@
 function MyArray() {
     this.length = 0;
 
+}
+
+
+
+function MyArrayMethods () {
+
     this.push = function() {
         for (let i = 0; i < arguments.length; i++) {
             this[this.length] = arguments[i];
@@ -31,3 +37,8 @@ function MyArray() {
         return arr;
     }
 }
+
+
+const protoArrayObject = new MyArrayMethods();
+
+MyArray.prototype = protoArrayObject;
