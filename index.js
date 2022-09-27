@@ -1,14 +1,41 @@
 'use strict'
 
-const obj1 = {
-    key: 'value'
-};
+/*
 
+Написати фунцію-конструктор для сходів (Ladder)
+Властивості:
+- currentStep
 
-const obj2 = {
-    method: function() {
-        console.log('hi')
+Методи:
+- up() - піднятись на одну сходинку
+- down() - спуститись на одну сходинку
+- showStep() - подивитись, на якій ви зараз сходинці
+
+Методи мають бути в прототипі об'єкта
+
+*/
+
+function Ladder() {
+    this.currentStep = 0; 
+}
+
+function LadderProto() {
+    this.up = function() {
+       return ++this.currentStep;
+    }
+
+    this.down = function() {
+        return --this.currentStep;
+    }
+
+    this.showStep = function () {
+        return this.currentStep;
     }
 }
 
-obj1.__proto__ = obj2;
+const protoObj = new LadderProto();
+
+Ladder.prototype = protoObj;
+
+ const ladder = new Ladder();
+ladder.up().down().down().up().up().showStep(); // 1
