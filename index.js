@@ -1,43 +1,44 @@
 'use strict'
 
+
 /*
-
-Написати фунцію-конструктор для сходів (Ladder)
-Властивості:
-- currentStep
-
-Методи:
-- up() - піднятись на одну сходинку
-- down() - спуститись на одну сходинку
-- showStep() - подивитись, на якій ви зараз сходинці
-
-Методи мають бути в прототипі об'єкта
+Створити функцію-конструктор для об'єкта User.
+User має властивості:
+- firstName
+- lastName
+- age
+- mail
+- isSubscribe
 
 */
 
-function Ladder() {
-    this.currentStep = 0; 
+function User(firstName, lastName, age, mail, isSubscribe = false){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.mail = mail;
+    this.isSubscribe = isSubscribe;
 }
 
-function LadderProto() {
-    this.up = function() {
-        this.currentStep++;
-       return this;
-    }
+/*
+Створити функцію, яка створює 1 користувача.
+1. Відбудовує об'єкт Юзера, передає йому дані
+`Name 1`, `LastName 1`, 20, `mail1@com`, true
+2. Повернути об'єкт користувача
 
-    this.down = function() {
-        this.currentStep--;
-        return this;
-    }
+*/
 
-    this.showStep = function () {
-        return this.currentStep;
+
+function getRandomArbitrary(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+function createArrayOfUsers(quantity) {
+    const userArr = [];
+    for (let i = 0; i < quantity; i++) {
+        const us = new User(`Name ${i}`, `LastName ${i}`, getRandomArbitrary(1, 100), `mail${i}@com`, Boolean(Math.round(Math.random())))
+        userArr.push(us);
     }
+   
+    return userArr;
 }
-
-const protoObj = new LadderProto();
-
-Ladder.prototype = protoObj;
-
- const ladder = new Ladder();
- ladder.up().down().down().up().up().showStep(); // 1
