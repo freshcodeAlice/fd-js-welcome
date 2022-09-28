@@ -61,3 +61,29 @@ arrUsers.sort(function (usA, usB) {
 })
 
 console.table(arrUsers);
+
+
+/* filter */
+
+
+/*
+Отримати масив всіх повнолітніх користувачів, які підписані на новини
+
+*/
+
+const filtered = arrUsers.filter(function (elem) {
+    return elem.age > 20 && elem.isSubscribe
+})
+
+
+/*
+Отримати масив емейлів всіх повнолітніх користувачів, які підписані
+
+*/
+
+const mail = arrUsers
+                .filter(function (elem) {
+                    return elem.age > 20 && elem.isSubscribe
+                }).map(function(user){
+                    return user.mail
+                })
