@@ -1,5 +1,12 @@
 'use strict'
 
+const NATIONALITIES = [
+    'Ukraine',
+    'Great Britain',
+    'Germany',
+    'France',
+    'Spain'
+];
 
 /*
 Створити функцію-конструктор для об'єкта User.
@@ -9,15 +16,17 @@ User має властивості:
 - age
 - mail
 - isSubscribe
+- nationality
 
 */
 
-function User(firstName, lastName, age, mail, isSubscribe = false){
+function User(firstName, lastName, age, mail, isSubscribe = false, nationality){
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
     this.mail = mail;
     this.isSubscribe = isSubscribe;
+    this.nationality = nationality;
 }
 
 /*
@@ -36,7 +45,7 @@ function getRandomArbitrary(min, max) {
 function createArrayOfUsers(quantity) {
     const userArr = [];
     for (let i = 0; i < quantity; i++) {
-        const us = new User(`Name ${i}`, `LastName ${i}`, getRandomArbitrary(1, 100), `mail${i}@com`, Boolean(Math.round(Math.random())))
+        const us = new User(`Name ${i}`, `LastName ${i}`, getRandomArbitrary(1, 100), `mail${i}@com`, Boolean(Math.round(Math.random())), NATIONALITIES[getRandomArbitrary(0, 4)])
         userArr.push(us);
     }
    
@@ -83,7 +92,34 @@ const filtered = arrUsers.filter(function (elem) {
 
 const mail = arrUsers
                 .filter(function (elem) {
-                    return elem.age > 20 && elem.isSubscribe
+                    return elem.age > 18 && elem.isSubscribe
                 }).map(function(user){
                     return user.mail
                 })
+
+/*
+Зробити масив з повних імен (ім'я + прізвище) користувачів з України, які підписані на наші новини
+
+*/
+
+const fullNamesOfUkrainian = arrUsers
+                                .filter( function (user) {
+                                    return (user.nationality === 'Ukraine') && user.isSubscribe
+                                })
+                                .map( function (user){
+                                    return `${user.firstName} ${user.lastName}`
+                                })
+
+/* forEach */
+
+/*
+Підпишіть на новини ВСІХ користувачів старше 18 років
+*/
+
+arrUsers.forEach(function(user){
+    if(user.age >= 18) {
+        user.isSubscribe = true;
+    }
+})
+
+console.table(arrUsers)
