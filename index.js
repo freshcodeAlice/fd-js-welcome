@@ -21,11 +21,13 @@ function Ladder() {
 
 function LadderProto() {
     this.up = function() {
-       return ++this.currentStep;
+        this.currentStep++;
+       return this;
     }
 
     this.down = function() {
-        return --this.currentStep;
+        this.currentStep--;
+        return this;
     }
 
     this.showStep = function () {
@@ -38,4 +40,4 @@ const protoObj = new LadderProto();
 Ladder.prototype = protoObj;
 
  const ladder = new Ladder();
-ladder.up().down().down().up().up().showStep(); // 1
+ ladder.up().down().down().up().up().showStep(); // 1
