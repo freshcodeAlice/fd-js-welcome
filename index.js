@@ -42,3 +42,22 @@ function createArrayOfUsers(quantity) {
    
     return userArr;
 }
+
+
+const arrUsers = createArrayOfUsers(50); // [] (50)
+//console.table(arrUsers);
+
+/* 
+Отримати масив повних імен юзерів 
+*/
+
+
+const fNameArray = arrUsers.map(function(userObj) {
+   return `${userObj.firstName} ${userObj.lastName}`;
+});
+
+arrUsers.sort(function (usA, usB) {
+    return usA.age - usB.age;
+})
+
+console.table(arrUsers);
