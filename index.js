@@ -1,18 +1,16 @@
  'use strict'
 
+function sum(...superArray) {
+// console.log(a);
+// console.log(b);
+console.log(superArray);
+}
 
 
- function sumAllArguments() {
-    console.log(arguments)
- }
+sum(1, 2, 5, 6, 7)
 
 
- const sum2 = () => {
-    console.log(arguments); // ARROW FUNCTION HAS NOT ARGUMENTS
- }
+const sumOfAllArguments = (...restArray) => restArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 
- sumAllArguments(3, 2, 1, 2, 3, 4);
-
-
- sum2(3, 2, 1, 2, 3, 4)
+console.log(sumOfAllArguments(3, 4 ,5, 6, 7, 8, 9));
