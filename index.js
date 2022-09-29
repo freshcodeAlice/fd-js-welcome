@@ -71,7 +71,7 @@ function drawSquare(dimension) {
     let square = '';
     for (let i = 0; i <= dimension; i++) {
         for (let j = 0; j <= dimension; j++) {
-            if(i === 0 || i === dimension || j === 0 || j === dimension || i === j) {
+            if(i === 0 || i === dimension || j === 0 || j === dimension || i === dimension - j) {
                 square += '*';
             } else {
                 square += ' ';
@@ -84,4 +84,4 @@ function drawSquare(dimension) {
 }
 
 
-drawSquare(8);
+drawSquare(10);
