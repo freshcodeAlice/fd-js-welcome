@@ -7,5 +7,5 @@ function sum(a, b, c, ...rest) {
 
 const numbers = [1, 2, 5, 7, 10];
 
-console.log(sum(...numbers));
+const newArr = [...numbers];
 
