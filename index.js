@@ -1,16 +1,11 @@
  'use strict'
 
-function sum(...superArray) {
-// console.log(a);
-// console.log(b);
-console.log(superArray);
+function sum(a, b, c, ...rest) {
+    return a+b+c;
 }
 
 
-sum(1, 2, 5, 6, 7)
+const numbers = [1, 2, 5, 7, 10];
 
+console.log(sum(...numbers));
 
-const sumOfAllArguments = (...restArray) => restArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
-
-console.log(sumOfAllArguments(3, 4 ,5, 6, 7, 8, 9));
