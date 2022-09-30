@@ -22,3 +22,17 @@ divDiap(2, 10)
         // 9 - [1, 3, 9]
         // 10 -[1, 2, 5, 10]
 */
+
+function divDiap(start, end){
+        for (let i = start; i <= end; i++) {
+            const divArray = [];
+            for (let j=1; j <= i; j++) {
+                if(i % j === 0) {
+                        divArray.push(j);
+                }
+            }
+              console.log(i + ' - ', divArray)   
+        // console.log(`${i} - ${divArray.join(' ')}`)
+        }
+}
+
