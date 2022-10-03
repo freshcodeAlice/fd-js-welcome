@@ -93,3 +93,29 @@ function fn(n) {
 for (let i = 0; i<10; i++) {
         console.log(fn(i));
 }
+
+
+/*
+
+var f = [0, 1]; //Первые значения
+
+if (n <= 2) { //если n <= 2
+
+    var result = f.slice(0, n); //записываем в результат срез f от 0 до n
+
+} else {
+
+    for (i = 0; i < n - 2; i++) { // повторяем n-2 раза, т.к. 2 элемента уже есть
+        f.push(f[f.length - 1] + f[f.length - 2]); //заполняем (n+2)-й элемент
+    }
+
+    var result = f; //записываем в result наш массив f
+
+}
+
+alert(result); //вывод result на экран (через алерт)
+
+
+
+
+*/
