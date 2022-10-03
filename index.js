@@ -1,21 +1,34 @@
  'use strict'
 
- function doSomeStuff(a, b) {
-        return a+square(b);
- }
+
+ /* 
+Задача - написати рекурсивну функцію, яка обчислює факторіал числа
+
+5! = 1*2*3*4*5
+5! = 4! * 5 = 3! * 4 * 5
+
+ */
 
 
- function square(b) {
-        return b*b;
- }
-
-
- function consoleResult(){
+function factorial(number) {
         debugger;
-        console.log(doSomeStuff(2,2))
- }
+        if(number === 1) {
+                return 1;
+        }
+        return number * factorial (number - 1);
+}
 
- consoleResult();
+/*
+Написати функцію, яка зводить у ступінь передане їй число
+
+pow(base, power)
+
+*/
 
 
- console.log('End of script')
+function pow(base, power) {
+        if(power === 1) {
+                return base
+        }
+        return base * pow(base, power-1);
+}
