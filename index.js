@@ -2,13 +2,10 @@
 
  /**
   * 
-  * @param {Number} a - First param of function 
-  * @param {Number} b - Second param of function
-  * @returns {Number} - Sum of two numbers
+  * @param {String} name - Username to sayHello to user
+  * @returns {undefined}
   */
 
-function sum(a, b) {
-        return a+b;
-}
-
-sum(4, 5)
+ function sayHello(name) {
+        console.log(`Hello, ${name}`);
+ }
