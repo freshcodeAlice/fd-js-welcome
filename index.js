@@ -12,6 +12,15 @@
        }
         console.log(`Hello, ${name}`);
  }
+/**
+ * 
+ * @param {Number} base
+ * @param {Number} power - More than 0
+ * @returns {Number} base on power
+ * @throws {TypeError}
+ * @throws {RangeError}
+ */
+
 
 
 function pow (base, power) {
@@ -27,3 +36,16 @@ function pow (base, power) {
        }
        return res;
 }
+
+
+try {
+       console.log('start');
+        pow(2, -2);
+      // pow (2,2);
+       console.log('end');
+} catch(error) {
+       console.log(error);
+}
+
+
+console.log('our code is alive');
