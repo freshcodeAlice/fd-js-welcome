@@ -55,3 +55,24 @@ function calculateArea(figure) {
 const crlc = new Circle(10);
 
 calculateArea(crlc);
+
+
+/*
+class User 
+властивості
+- мейл
+- пароль
+- isBanned
+
+метод
+- sayHello()
+
+class Moderator
+- мейл
+- пароль
+
+метод
+- забанити Юзера (прийняти об'єкт юзера і зробити isBanned = true)
+
+
+*/
