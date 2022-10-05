@@ -1,46 +1,57 @@
- class Animal {
-    constructor(name, amountOfLegs, type) {
-        this.name = name;
-        this.amountOfLegs = amountOfLegs;
-        this.type = type;
+class Figure {
+    constructor(type) {
+        this.sideQuantity = type;
     }
 
-    static isAnimal(anim) {
-        return anim instanceof Animal;
+    getArea() {
+    }
+}
+
+class Triangle extends Figure {
+    constructor(a, b, angle) {
+        super(3);
+        this.a = a;
+        this.b = b;
+        this.angle = angle;
     }
 
-    run() {
-        return `${this.name} is running`
+    getArea() {
+        return 0.5*this.a*this.b*Math.sin(this.angle)
+    }
+}
+
+class Square extends Figure {
+    constructor(a) {
+        super(4);
+        this.a = a;
     }
 
-    eat() {
-        return 'Yummm!)'
+    getArea() {
+        return this.a*this.a
     }
- }
+}
 
-
- class Cat extends Animal {
-    constructor(name, amountOfLegs, color) {
-        super(name, amountOfLegs, 'Cat');
-        this.color = color;
-    }
-
-    sleep() {
-        return `${this.name} is sleeeeeeeping`
-    }
- }
-
-
- class Kitten extends Cat {
-    constructor(name, amountOfLegs, color) {
-        super(name, amountOfLegs, color);
+class Circle extends Figure {
+    constructor(d) {
+        super(Infinity);
+        this.d = d;
     }
 
-    makeNoize() {
-        return `${this.name} says: 'Piiiiiiiiiii`
-    }
 
-    sleep() {
-        return `${this.name} is noizy sleeping`
+    getArea() {
+        return Math.PI * (this.d * this.d / 4)
     }
- }
+}
+
+/**
+ * @param {Figure} figure
+ */
+
+function calculateArea(figure) {
+
+    return figure.getArea();
+}
+
+const crlc = new Circle(10);
+
+calculateArea(crlc);
