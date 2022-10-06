@@ -25,11 +25,41 @@ class MyNewArray {
     }
 
     map(fn) {
-        const arr = new MyArray();
+        const arr = new MyNewArray();
         for (let i = 0; i < this.length; i++) {
             arr.push(fn(this[i]));
         }
         return arr;
+    }
+
+    concat(arr2) {
+        for (let i = 0; i < arr2.length; i++) {
+            this.push(arr2[i])  
+        }
+        return this;
+    }
+
+    flat() {
+        const res = new MyNewArray();
+        for (let i = 0; i < this.length; i++) {
+            if(MyNewArray.isMyNewArray(this[i])){
+               res.concat(this[i].flat());
+            } else {
+                res.push(this[i])
+            }
+        }
+        return res;
+    }
+
+
+    reverse() {
+        let len = this.length-1;
+        for (let i = 0; i <= len/2; i++) {
+            let tmp = this[i];
+            this[i] = this[len - i];
+            this[len-i] = tmp;
+        }
+       return this;
     }
 
     static isMyNewArray(obj) {
@@ -42,3 +72,13 @@ class MyNewArray {
 const myarr = new MyNewArray();
 
 MyNewArray.isMyNewArray(myarr) //true
+
+myarr.flat();
+
+/*
+Реалізувати метод .flat()
+
+
+[3, 2, 1, [2, 1, [2, 5]]] // [3, 2, 1, 2, 1, 2, 5]
+
+*/
