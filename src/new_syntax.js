@@ -62,6 +62,25 @@ class MyNewArray {
        return this;
     }
 
+
+    indexOf(value) {
+        for (let i = 0; i < this.length; i++) {
+           if(this[i] === value) {
+            return i
+           } 
+        }
+        return -1
+    }
+
+    includes(value) {
+        for (let i = 0; i < this.length; i++) {
+            if(this[i] === value) {
+             return true
+            } 
+         }
+         return false
+    }
+
     static isMyNewArray(obj) {
         return obj instanceof MyNewArray;
     }
