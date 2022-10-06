@@ -66,6 +66,18 @@ class MyNewArray {
         return obj instanceof MyNewArray;
     }
 
+    [Symbol.iterator] () {
+        let i = 0;
+        return {
+            next: () => {
+                return {
+                    value: this[i++],
+                    done: i > this.length
+                }
+            }
+        }
+    }
+
 }
 
 
