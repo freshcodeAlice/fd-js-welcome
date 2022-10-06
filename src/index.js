@@ -76,3 +76,27 @@ class Moderator
 
 
 */
+
+class User {
+    constructor(mail, pass) {
+        this.mail = mail;
+        this.pass = pass;
+        this.isBanned = false;
+    }
+
+
+    sayHello() {
+        return `${this.mail} say hello`
+    }
+}
+
+class Moderator extends User {
+    constructor(mail, pass) {
+        super(mail, pass);
+
+    }
+
+    banUser(user) {
+        user.isBanned = true;
+    }
+}
