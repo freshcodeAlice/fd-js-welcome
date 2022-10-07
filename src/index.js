@@ -6,7 +6,7 @@ class ListItem {
     }
 
     get value() {
-        this._value
+        return this._value
     }
 
     set value(v) {
@@ -38,8 +38,62 @@ class LinkedList {
         }
         return ++this.length
     }
+
+    deleteHeadElement () {
+            const nextElement = this.head.next;
+            nextElement.prev = null;
+            this.head = nextElement;
+            this.length--;
+    }
+
+
+    deleteTailElement() {
+            const prevElement = this.tail.prev;
+            prevElement.next = null;
+            this.tail = prevElement;
+            this.length--;
+    }
+
+    deleteElement(value) {
+        for (const item of this) {
+            if(item.value === value) {
+                const nextElement = item.next;
+                const prevElement = item.prev;
+                nextElement.prev = prevElement;
+                prevElement.next = nextElement;
+            }
+        }
+        this.length--;
+        
+    }
+
+
+    /*
+    deleteElement(value){} видаляє елемент зі списку за прийнятим value
+
+
+
+    */
+
+    [Symbol.iterator]() {
+        return new LinkedListIterator(this)
+    }
+
+
 }
 
-/*
-Реалізувати додавання будь-якої кількості елементів у зв'язаний список при створенні його.
-*/
+
+class LinkedListIterator {
+    constructor(list) {
+        this.list = list;
+        this.currentNode = null;
+    }
+
+    next(){
+        this.currentNode = this.currentNode ? this.currentNode.next : this.list.head;
+        return {
+            value: this.currentNode,
+            done: !this.currentNode,
+        }
+    }
+}
