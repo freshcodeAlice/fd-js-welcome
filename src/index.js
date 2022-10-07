@@ -1,99 +1,82 @@
-class ListItem {
-    constructor(value){
-        this.value = value;
-        this.next = null;
-        this.prev = null;
+/*
+Напишіть клас Student який має властивості - 
+ім'я
+прізвище
+рік вступу до університету (число! 2017)
+
+метод getCourse, який вираховує, на якому курсі вчиться студент (поточний рік отримайте від Date)
+*/
+
+
+class Student{
+    constructor(firstName, lastName, yearOfGrad) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.yearOfGrad = yearOfGrad; 
     }
 
-    get value() {
-        return this._value
+    getCourse() {
+        return new Date().getFullYear - this.yearOfGrad;
     }
+}
 
-    set value(v) {
-        this._value = v;
+
+
+
+
+/*
+Написати функцію, яка повертає рядок з назвою поточної пори року.
+'зима' - якщо на дворі з грудня по січень,
+'осінь' - з вересня по листопад
+'літо' - з червня по серпень
+'весна' - з березня по травень
+
+*/
+
+function getSeason(){
+    const month = new Date().getMonth();
+    // if(month <=1 || month === 11) {
+    //     return 'winter'
+    // } else if(month >= 2 && month <=4) {
+    //     return 'spring'
+    // } else if(month >= 5 && month <= 7) {
+    //     return 'summer'
+    // } else {
+    //     return 'fall'
+    // }
+
+    switch(month){
+        case 0:
+        case 1:
+        case 11:
+            return 'winter';
+        case 2:
+        case 3:
+        case 4:
+            return 'spring';
+        case 5: 
+        case 6:
+        case 7:
+            return 'summer';
+        case 8:
+        case 9:
+        case 10:
+            return 'fall';
+        default: 
+            return null;
     }
 }
 
 
-class LinkedList {
-    constructor(...args){
-        this.length = 0;
-        this.head = null;
-        this.tail = null;
 
-        for (const item of args) {
-            this.push(item);
-        }
-    }
-
-    push(v) {
-        const newItem = new ListItem(v);
-        if (this.length === 0) {
-            this.head = newItem;
-            this.tail = newItem;
-        } else {
-            this.tail.next = newItem;
-            newItem.prev = this.tail;
-            this.tail = newItem;
-        }
-        return ++this.length
-    }
-
-    deleteHeadElement () {
-            const nextElement = this.head.next;
-            nextElement.prev = null;
-            this.head = nextElement;
-            this.length--;
-    }
-
-
-    deleteTailElement() {
-            const prevElement = this.tail.prev;
-            prevElement.next = null;
-            this.tail = prevElement;
-            this.length--;
-    }
-
-    deleteElement(value) {
-        for (const item of this) {
-            if(item.value === value) {
-                const nextElement = item.next;
-                const prevElement = item.prev;
-                nextElement.prev = prevElement;
-                prevElement.next = nextElement;
-            }
-        }
-        this.length--;
-        
-    }
-
-
-    /*
-    deleteElement(value){} видаляє елемент зі списку за прийнятим value
+/*
+Вивести на екран поточну дату у форматі:
+"день-місяць-рік"
+(7-10-2022)
 
 
 
-    */
+*/
 
-    [Symbol.iterator]() {
-        return new LinkedListIterator(this)
-    }
-
-
-}
-
-
-class LinkedListIterator {
-    constructor(list) {
-        this.list = list;
-        this.currentNode = null;
-    }
-
-    next(){
-        this.currentNode = this.currentNode ? this.currentNode.next : this.list.head;
-        return {
-            value: this.currentNode,
-            done: !this.currentNode,
-        }
-    }
-}
+const date = new Date();
+console.log(`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`);
