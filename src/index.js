@@ -18,3 +18,17 @@ function binarySearchFunction(array, searchValue) {
         }
     }
 }
+
+
+function resursiveBinary(array, searchValue) {
+    const middle = Math.ceil((array.length-1)/2);
+    if(array[middle] === searchValue) {
+        return middle;
+    } else if(array[middle] > searchValue) {
+        return resursiveBinary(array.slice(0, middle), searchValue);
+    } else if (array[middle] < searchValue) {
+        return middle + resursiveBinary(array.slice(middle), searchValue);
+    } else {
+        return -1;
+    }
+}
