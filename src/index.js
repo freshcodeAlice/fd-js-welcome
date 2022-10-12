@@ -26,6 +26,7 @@ class Stack {
     pop(){
         const lastItem = this[`_${this.size-1}`];
         delete this[`_${this.size-1}`];
+        this._size--;
         return lastItem;
     }
 
