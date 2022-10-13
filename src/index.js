@@ -1,5 +1,5 @@
 class Stack {
-    constructor(maxSize, ...arr){
+    constructor(maxSize = 10, ...arr){
         this._maxSize = maxSize;
         this._size = 0;
         for (const item of arr) {
@@ -65,3 +65,38 @@ class Stack {
         Якщо це не пара до відкриваючої - одразу повертаєм false
 4. Якщо ми дійшли до кінця рядку - треба проаналізувати, чи лишилось щось у стеку.
 */
+
+
+function checkSequence(str, braces) {
+    const stack = new Stack(str.length);
+    const closeBraces = Object.values(braces);
+    for (const symb of str) {
+          if(braces[symb]){
+            stack.push(symb);
+            continue;
+          }
+          if(closeBraces.includes(symb) && stack.isEmpty){
+            return false
+          }
+          const lastItemFromStack = stack.pick();
+          const correctCloseBrace = braces[lastItemFromStack]
+          if(symb === correctCloseBrace){
+            stack.pop();
+          } else if (closeBraces.includes(symb) || braces[symb]){
+            return false;
+          }
+    }
+
+    return stack.isEmpty
+}
+
+
+const braces = {
+    '(':')',
+    '{':'}',
+    '[':']'
+}
+
+checkSequence('({})[]', braces)
+
+
