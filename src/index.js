@@ -1,58 +1,6 @@
-const arr = [2, 1, 1, 1, 2, 4, 5, 6];
-//undefined
-[...new Set(arr).keys()]
-//(5) [2, 1, 4, 5, 6]
-const set1 = new Set(arr)
-//undefined
-set1;
-//Set(5) {2, 1, 4, 5, 6}[[Entries]]0: 21: 12: 43: 54: 6size: 5[[Prototype]]: Set
-set1.has(1)
-//true
-set1.has(7)
-//false
-set1.clear()
-//undefined
-set1;
-//Set(0) {size: 0}[[Entries]]Немає властивостейsize: 0[[Prototype]]: Set
-set1.add(3)
-//Set(1) {3}
-set1.add(4)
-//Set(2) {3, 4}
-set1.add(5)
-//Set(3) {3, 4, 5}
-set1.delete(1)
-//false
-set1.delete(3)
-//true
-set1;
-//Set(2) {4, 5}[[Entries]]0: 41: 5size: 2[[Prototype]]: Set
-set1.delete(3)
-//false
-
-
-/*
-Дані два масива:
-
-const arr1 = [2, 7, 5, 1, 9, -10];
-const arr2 = [4, 2, 7, 10];
-
-// [2, 7, 5, 1, 9, -10, 4, 10];
-
-
-*/
-
- const arr1 = [2, 7, 5, 1, 9, -10];
- const arr2 = [4, 2, 7, 10];
-
-const res = [...new Set([...arr1, ...arr2])]
-
 
 /*
 перетворити меп у ['1 - johndoe', '2 - janedoe', '3 - alexdoe']
-
-
-
-*/
 
 const map = new Map([[1, {username: 'john doe'}], [2, {username: 'janedoe'}], [3, {username: 'alexdoe'}]]);
 
@@ -60,3 +8,65 @@ const map = new Map([[1, {username: 'john doe'}], [2, {username: 'janedoe'}], [3
 [...map.entries()].map((cortege)=>{
     return `${cortege[0]} ${cortege[1].username}`
 })
+
+*/
+
+
+
+const userObj = {
+    name: {
+        first: 'John',
+        last: 'Doe',
+    },
+    age: 20,
+    auth: {
+        email: 'doe@mail.com',
+        pass: 'qwerty'
+    }
+};
+
+//`John Doe - doe@mail.com`
+const {name: {first, last}, auth: {email}} = userObj;
+ `${first} ${last} - ${email}`
+// const {age} = userObj; // const age = userObj.age
+// const {name: {first, last}} = userObj; 
+/*
+const first = userObj.name.first;
+const last = userObj.name.last;
+
+*/
+
+//const {auth:{email}} = userObj; //const email = userObj.auth.email
+
+
+//////////////////////
+
+
+const monitor = {
+    sizes: {
+        width:{
+            value: 30,
+            scale: 'sm'
+        },
+        height: {
+            value: 40,
+            scale: 'sm'
+        },
+    },   
+    brigthness: {
+        value: 24000,
+        scale: 'lux'
+    },
+    resolution: '4k'
+};
+
+const {sizes: {width: {value: widthValue}}, brigthness: {value: brightnessValue}} = monitor;
+// const widthValue = monitor.sizes.width.value;
+// const brightnessValue = monitor.brightness.value;
+
+
+function getDiagonal(monitor){
+    const {sizes:{width: {value: widthValue}, height: {value: heightValue}}} = monitor;
+
+    return Math.sqrt(widthValue**2 + heightValue**2);
+}
