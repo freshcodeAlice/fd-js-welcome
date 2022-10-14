@@ -45,3 +45,18 @@ const arr2 = [4, 2, 7, 10];
  const arr2 = [4, 2, 7, 10];
 
 const res = [...new Set([...arr1, ...arr2])]
+
+
+/*
+перетворити меп у ['1 - johndoe', '2 - janedoe', '3 - alexdoe']
+
+
+
+*/
+
+const map = new Map([[1, {username: 'john doe'}], [2, {username: 'janedoe'}], [3, {username: 'alexdoe'}]]);
+
+
+[...map.entries()].map((cortege)=>{
+    return `${cortege[0]} ${cortege[1].username}`
+})
