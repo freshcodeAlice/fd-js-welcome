@@ -12,7 +12,7 @@ const map = new Map([[1, {username: 'john doe'}], [2, {username: 'janedoe'}], [3
 */
 
 
-
+/*
 const userObj = {
     name: {
         first: 'John',
@@ -30,7 +30,6 @@ const {name: {first, last}, auth: {email}} = userObj;
  `${first} ${last} - ${email}`
 // const {age} = userObj; // const age = userObj.age
 // const {name: {first, last}} = userObj; 
-/*
 const first = userObj.name.first;
 const last = userObj.name.last;
 
@@ -69,4 +68,35 @@ function getDiagonal(monitor){
     const {sizes:{width: {value: widthValue}, height: {value: heightValue}}} = monitor;
 
     return Math.sqrt(widthValue**2 + heightValue**2);
+}
+
+const {brigthness, resolution, ...restOfObject} = monitor;
+
+
+function consoleValue({target: {value, name}}){
+//    const {target: {value}} = event;
+}
+
+//event{
+//    target:{
+//        value,name
+//    }
+// }
+
+
+const userObj = {
+    name: {
+        first: 'John',
+        last: 'Doe',
+        fatherName: 'Petrovich'
+    },
+    age: 20,
+    auth: {
+        email: 'doe@mail.com',
+        pass: 'qwerty'
+    }
+};
+
+function getFullName({name: {first, last, ...restOfName}, ...restOfUser}) {
+    return `${first} ${last}`
 }
